@@ -1,0 +1,18 @@
+.git
+.hf-publish-space/
+.gitignore
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Generated / sample output is not needed by the hosted generator.
+examples/
+projects/*
+!projects/README.md
+
+# Local runtime artifacts.
+*.lock
+*.log
+.env

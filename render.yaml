@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: ppt-master-agent
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PERSISTENCE_BACKEND
+        value: supabase
+      - key: PPT_MASTER_RUNS_DIR
+        value: /tmp/ppt-master-hosted
+      - key: AGENT_MAX_STEPS
+        value: "120"
+      - key: TOOL_COMMAND_TIMEOUT
+        value: "900"
+      - key: TOOL_READ_MAX_CHARS
+        value: "32000"
+      - key: CODEX_CHAT_PATH
+        value: /chat/completions
+      - key: CODEX_TIMEOUT
+        value: "120"
+      - key: CODEX_BASE_URL
+        sync: false
+      - key: CODEX_API_KEY
+        sync: false
+      - key: CODEX_MODEL
+        sync: false
+      - key: IMAGE_OPENAI_BASE_URL
+        sync: false
+      - key: IMAGE_OPENAI_API_KEY
+        sync: false
+      - key: IMAGE_OPENAI_MODEL
+        value: gpt-image-2
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_BUCKET
+        value: ppt-master
+      - key: APP_USERNAME
+        sync: false
+      - key: APP_PASSWORD
+        sync: false

@@ -74,6 +74,8 @@ tramp
 *.log
 
 # Project Specific
+.hf-publish-space/
+
 # Generated SVG files (uncomment if you don't want to commit generated files)
 # output/
 # generated/
