@@ -198,6 +198,10 @@ def _launch_auth() -> tuple[str, str] | None:
     return None
 
 
+def _server_port() -> int:
+    return int(os.environ.get("PORT", "7860"))
+
+
 with gr.Blocks(title="PPT Master Agent") as demo:
     gr.Markdown("# PPT Master Hosted Agent\nSingle-user Render + Supabase wrapper for PPT generation and revision.")
     app_state = gr.State({})
@@ -259,4 +263,4 @@ with gr.Blocks(title="PPT Master Agent") as demo:
 
 
 if __name__ == "__main__":
-    demo.queue(default_concurrency_limit=1).launch(server_name="0.0.0.0", server_port=7860, auth=_launch_auth())
+    demo.queue(default_concurrency_limit=1).launch(server_name="0.0.0.0", server_port=_server_port(), auth=_launch_auth())

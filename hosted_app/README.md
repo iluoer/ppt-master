@@ -66,6 +66,9 @@ SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
 SUPABASE_BUCKET=ppt-master
 ```
 
+`SUPABASE_SERVICE_ROLE_KEY` accepts either the legacy `service_role` JWT or a
+new server-side `sb_secret_...` key. Do not use an anon/publishable key.
+
 App login:
 
 ```env

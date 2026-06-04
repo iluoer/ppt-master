@@ -42,10 +42,9 @@ def _supabase_config() -> tuple[str, str, str]:
 
 def _supabase_headers(content_type: str | None = None) -> dict[str, str]:
     _, key, _ = _supabase_config()
-    headers = {
-        "Authorization": f"Bearer {key}",
-        "apikey": key,
-    }
+    headers = {"apikey": key}
+    if not key.startswith("sb_secret_"):
+        headers["Authorization"] = f"Bearer {key}"
     if content_type:
         headers["Content-Type"] = content_type
     return headers
